@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "updated": "2025-05-20T22:53:19Z",
+  "description": "Triplet Trust Protocol API Directory",
+  "endpoints": {
+    "trust": "/api/trust.json",
+    "languages": "/api/languages.json",
+    "oxygen_declarations": "/oxygen-events.json",
+    "known_claims": "/known-claims.json",
+    "domains": "/domains.json",
+    "breath": "/api/breath.json"
+  }
+}

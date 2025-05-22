@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Breath Declarations (9425π)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { background: #0e0e0e; color: #e0e0e0; font-family: monospace; padding: 2rem; max-width: 900px; margin: auto; }
+    h1 { color: #94e0ff; }
+    input {
+      background: #1c1c1c; color: #e0e0e0; border: 1px solid #444;
+      padding: 0.5rem; border-radius: 4px; width: 100%; margin-bottom: 1rem;
+    }
+    .entry {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-left: 4px solid #66ccff;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    a { color: #ffc57a; }
+    .lang-count { margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Breath Declarations (9425π)</h1>
+  <input type="text" id="filterInput" placeholder="Filter by phrase..." />
+
+  <div id="languageSummary" class="lang-count"></div>
+  <div id="logContainer">Loading...</div>
+
+  <p><a href="breathe.php">← Declare Breath</a></p>
+  <p><a href="index.php">← Back to Home</a></p>
+
+  <script>
+    let allData = [];
+
+    function detectLanguage(statement) {
+      if (/[א-ת]/.test(statement)) return "Hebrew";
+      if (/[؀-ۿ]/.test(statement)) return "Arabic/Farsi";
+      if (/inapumua/.test(statement)) return "Swahili";
+      if (/respira/.test(statement)) return "Spanish";
+      if (/respire/.test(statement)) return "French";
+      return "English/Other";
+    }
+
+    function renderFiltered(filter = "") {
+      const container = document.getElementById('logContainer');
+      container.innerHTML = '';
+      const filtered = allData.filter(entry =>
+        entry.statement.toLowerCase().includes(filter.toLowerCase())
+      );
+      filtered.forEach(entry => {
+        const div = document.createElement('div');
+        div.className = 'entry';
+        div.innerHTML = `<strong>Statement:</strong> ${entry.statement}<br>
+                         <strong>π:</strong> ${entry.pi}<br>
+                         <strong>Timestamp:</strong> ${entry.timestamp}`;
+        container.appendChild(div);
+      });
+    }
+
+    function updateLanguageSummary(data) {
+      const summaryEl = document.getElementById('languageSummary');
+      const langCounts = {};
+      data.forEach(entry => {
+        const lang = detectLanguage(entry.statement);
+        langCounts[lang] = (langCounts[lang] || 0) + 1;
+      });
+
+      let html = '<strong>Language Breakdown:</strong><br>';
+      for (const lang in langCounts) {
+        html += `${lang}: ${langCounts[lang]}<br>`;
+      }
+      summaryEl.innerHTML = html;
+    }
+
+    fetch('oxygen-events.json')
+      .then(res => res.json())
+      .then(data => {
+        allData = data;
+        updateLanguageSummary(data);
+        renderFiltered();
+      })
+      .catch(err => {
+        document.getElementById('logContainer').textContent = 'Error loading breath declarations.';
+        console.error(err);
+      });
+
+    document.getElementById('filterInput').addEventListener('input', function() {
+      renderFiltered(this.value);
+    });
+  </script>
+
+</body>
+</html>

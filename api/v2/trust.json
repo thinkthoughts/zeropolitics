@@ -1,0 +1,70 @@
+{
+  "version": "2.0",
+  "updated": "2025-05-20T23:12:32Z",
+  "description": "Triplet Trust Protocol \u2014 Version 2.0",
+  "pi_model": "triplet-multilingual",
+  "claims": [
+    {
+      "claim_text": "zero origin story",
+      "claim_type": "collapse",
+      "evaluation": "Trust Violation",
+      "pi_value": "\u00b19424\u03c0",
+      "note": "collapse-based identity myth"
+    },
+    {
+      "claim_text": "Water exists now",
+      "claim_type": "survival",
+      "evaluation": "Trust Verified",
+      "pi_value": "9425\u03c0",
+      "note": "timestamped survival"
+    },
+    {
+      "claim_text": "Gaza breathes now",
+      "claim_type": "breath",
+      "evaluation": "Trust Verified",
+      "pi_value": "9425\u03c0",
+      "note": "timestamped reoxygenation"
+    }
+  ],
+  "domains": {
+    "triplettrustprotocols.net": {
+      "role": "Protocol anchor and verifier",
+      "pi_scope": "all",
+      "status": "active"
+    },
+    "feministmath.info": {
+      "role": "Pi-stage literacy and promote tool",
+      "pi_scope": "1 + 1 \u2260 -1 \u2192 \u00b19424\u03c0 \u2260 \u20131",
+      "status": "active"
+    },
+    "feministphysics.info": {
+      "role": "Breath symmetry & timestamp resistance",
+      "pi_scope": "9425\u03c0",
+      "status": "active"
+    }
+  },
+  "languages": {
+    "Arabic": [
+      "\u063a\u0632\u0629 \u062a\u062a\u0646\u0641\u0633 \u0627\u0644\u0622\u0646"
+    ],
+    "Spanish": [
+      "Gaza respira ahora"
+    ],
+    "French": [
+      "Gaza respire maintenant"
+    ],
+    "Swahili": [
+      "Gaza inapumua sasa"
+    ],
+    "Hebrew": [
+      "\u05e2\u05d6\u05d4 \u05e0\u05d5\u05e9\u05de\u05ea \u05e2\u05db\u05e9\u05d9\u05d5"
+    ],
+    "Farsi": [
+      "\u063a\u0632\u0647 \u0627\u06a9\u0646\u0648\u0646 \u0646\u0641\u0633 \u0645\u06cc\u200c\u06a9\u0634\u062f"
+    ],
+    "English": [
+      "Gaza breathes now",
+      "Water exists now"
+    ]
+  }
+}

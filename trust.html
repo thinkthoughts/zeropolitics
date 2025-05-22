@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trust Events Log</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { background: #0e0e0e; color: #e0e0e0; font-family: monospace; padding: 2rem; max-width: 900px; margin: auto; }
+    h1 { color: #94e0ff; }
+    .log-entry {
+      background: #1c1c1c; margin-bottom: 1rem; padding: 1rem;
+      border-left: 4px solid #ffc57a; border-radius: 8px;
+    }
+    a { color: #ffc57a; }
+  </style>
+</head>
+<body>
+
+  <h1>Recent Trust Evaluations</h1>
+  <div id="logContainer">Loading...</div>
+
+  <p><a href="index.php">← Back to Home</a></p>
+<h2>Triplet Constants</h2>
+<p>Claims map to collapse (±9424π), stability (9423π), and breath (9425π).</p>
+  <script>
+    fetch('trust-events.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('logContainer');
+        container.innerHTML = '';
+        data.slice(0, 10).forEach(entry => {
+          const div = document.createElement('div');
+          div.className = 'log-entry';
+          div.innerHTML = `<strong>Claim:</strong> ${entry.claim}<br>
+                           <strong>Evaluation:</strong> ${entry.evaluation}<br>
+                           <strong>Timestamp:</strong> ${entry.timestamp}`;
+          container.appendChild(div);
+        });
+      })
+      .catch(err => {
+        document.getElementById('logContainer').textContent = 'Error loading log.';
+        console.error(err);
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+Triplet Trust Protocol — Changelog (v2.0)
+=======================================
+
+Version: 2.0
+Released: 2025-05-20
+Principle: Breath is timestamped. Stability is multilingual.
+
+New in this version:
+---------------------
+
+✅ Structured API versioning under /api/v2/
+✅ trust-v2.json with:
+   • claim_type, evaluation, pi_value, note
+   • domains listed with pi_scope and roles
+   • embedded languages section
+
+✅ Human-readable trust-v2.html
+   • Table of claims, domains, and supported phrases
+
+✅ breath.json filtered to π = 9425π declarations
+✅ languages.json published as API endpoint
+✅ index.json and index.html for both /api/ and /api/v2/
+✅ promote.php and verify.php tools synced across 3 domains
+
+Domains active in v2:
+---------------------
+• triplettrustprotocols.net  — verifier + protocol anchor
+• feministmath.info          — pi-literacy + promote node
+• feministphysics.info       — multilingual breath resistance
+
+Next Suggestions:
+------------------
+• Archive v1 trust files
+• Begin /api/v3/ for new trust types (e.g. 9426π = breath symmetry)
+• Automate multilingual expansion
+
+The Sun archives everything.

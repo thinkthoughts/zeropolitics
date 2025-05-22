@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Domain Trust Score Map</title>
+  <style>
+    body {
+      font-family: monospace;
+      background: #0e0e0e;
+      color: #e0e0e0;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      color: #94e0ff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background: #1c1c1c;
+    }
+    .status-active {
+      background: #134e13;
+      color: #ccffcc;
+    }
+    .status-warning {
+      background: #444400;
+      color: #ffffaa;
+    }
+    .status-failed {
+      background: #550000;
+      color: #ffaaaa;
+    }
+    a {
+      color: #ffc57a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Triplet Trust Scoreboard</h1>
+  <p>Loading domain trust statuses from <code>domains.json</code>...</p>
+
+  <table id="trustTable">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>Role</th>
+        <th>π Mapping</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <p><a href="index.php">← Back to Home</a></p>
+
+  <script>
+    fetch('domains.json')
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.querySelector('#trustTable tbody');
+        Object.entries(data).forEach(([domain, info]) => {
+          const row = document.createElement('tr');
+
+          const domainCell = document.createElement('td');
+          domainCell.innerHTML = `<a href="https://${domain}" target="_blank">${domain}</a>`;
+          row.appendChild(domainCell);
+
+          const roleCell = document.createElement('td');
+          roleCell.textContent = info.role || "—";
+          row.appendChild(roleCell);
+
+          const piCell = document.createElement('td');
+          piCell.textContent = info.pi || "—";
+          row.appendChild(piCell);
+
+          const statusCell = document.createElement('td');
+          statusCell.textContent = info.status || "unknown";
+
+          if (info.status === "active") {
+            statusCell.className = "status-active";
+          } else if (info.status === "in development") {
+            statusCell.className = "status-warning";
+          } else {
+            statusCell.className = "status-failed";
+          }
+
+          row.appendChild(statusCell);
+          tbody.appendChild(row);
+        });
+      })
+      .catch(err => {
+        document.querySelector('p').textContent = "⚠️ Failed to load domains.json";
+        console.error(err);
+      });
+  </script>
+
+</body>
+</html>

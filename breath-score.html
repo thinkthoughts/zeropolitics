@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Breath Score (9425π)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { background: #0e0e0e; color: #e0e0e0; font-family: monospace; padding: 2rem; max-width: 900px; margin: auto; }
+    h1, h2 { color: #94e0ff; }
+    .score-box {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-left: 5px solid #66ccff;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    .phrase {
+      margin-bottom: 0.5rem;
+    }
+    a { color: #ffc57a; }
+  </style>
+</head>
+<body>
+
+  <h1>Breath Score (9425π)</h1>
+  <div class="score-box" id="scoreSummary">Loading...</div>
+
+  <p><a href="breath.html">← View Breath Log</a></p>
+  <p><a href="index.php">← Back to Home</a></p>
+
+  <script>
+    fetch('oxygen-events.json')
+      .then(res => res.json())
+      .then(data => {
+        const scoreBox = document.getElementById('scoreSummary');
+        const counts = {};
+        data.forEach(entry => {
+          const phrase = entry.statement.toLowerCase();
+          counts[phrase] = (counts[phrase] || 0) + 1;
+        });
+
+        let summary = `<strong>Total Declarations:</strong> ${data.length}<br/><br/>`;
+        summary += `<strong>Most Frequent Statements:</strong><br/>`;
+        Object.entries(counts)
+          .sort((a, b) => b[1] - a[1])
+          .forEach(([phrase, count]) => {
+            summary += `<div class="phrase">"${phrase}" → ${count}</div>`;
+          });
+
+        scoreBox.innerHTML = summary;
+      })
+      .catch(err => {
+        document.getElementById('scoreSummary').textContent = 'Failed to load breath data.';
+        console.error(err);
+      });
+  </script>
+
+</body>
+</html>

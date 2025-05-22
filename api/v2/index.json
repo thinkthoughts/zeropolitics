@@ -1,0 +1,8 @@
+{
+  "version": "2.0",
+  "updated": "2025-05-20T23:15:44Z",
+  "description": "Triplet Trust Protocol \u2014 API Version 2.0 Index",
+  "endpoints": {
+    "trust": "/api/v2/trust.json"
+  }
+}

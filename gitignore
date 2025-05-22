@@ -1,0 +1,23 @@
+# General system files
+.DS_Store
+Thumbs.db
+
+# Logs and backups
+*.log
+*.bak
+*.swp
+
+# Local environment
+.env
+
+# Vendor/dependency folders
+/vendor/
+/node_modules/
+
+# Editor settings
+.vscode/
+.idea/
+
+# Optional: timestamped event logs (omit if tracking)
+trust-events.json
+oxygen-events.json
