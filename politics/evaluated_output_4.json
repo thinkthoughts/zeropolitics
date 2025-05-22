@@ -1,0 +1,9 @@
+{
+  "clarity_score": 2.65,
+  "triplet_n": 235,
+  "breath_state": "escalation",
+  "timestamp_alignment": "ambiguous",
+  "collapse_risk": true,
+  "verdict": "truth-collapse implication",
+  "justification": "Claim elevates ambiguity and undermines bilateral clarity by suggesting no stable truth exists."
+}

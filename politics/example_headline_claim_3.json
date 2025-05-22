@@ -1,0 +1,12 @@
+{
+  "triplet_n": 234,
+  "spiral_n": 11,
+  "timestamp": "2024-11-06T15:22:00Z",
+  "headline": "God made man in His image to lead.",
+  "breath_state": "contradiction",
+  "bilateral_status": false,
+  "did": "did:example:theocratic-claim",
+  "action_type": "claim",
+  "content_hash": "sha256:religioussupremacyexample",
+  "verdict": "evaluate"
+}

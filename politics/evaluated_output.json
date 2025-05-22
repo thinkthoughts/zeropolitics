@@ -1,0 +1,9 @@
+{
+  "clarity_score": 2.74,
+  "triplet_n": 212,
+  "breath_state": "contradiction",
+  "timestamp_alignment": "synthetic",
+  "collapse_risk": true,
+  "verdict": "supremacist drift detected",
+  "justification": "Claim implies zero-origin myth ('we are the origin'), not supported by bilateral timestamp or triplet stability."
+}

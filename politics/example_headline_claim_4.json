@@ -1,0 +1,12 @@
+{
+  "triplet_n": 235,
+  "spiral_n": 11,
+  "timestamp": "2024-11-07T18:00:00Z",
+  "headline": "We\u2019ve entered a post-truth era.",
+  "breath_state": "escalation",
+  "bilateral_status": false,
+  "did": "did:example:media-commentary",
+  "action_type": "claim",
+  "content_hash": "sha256:posttruthclaim",
+  "verdict": "evaluate"
+}

@@ -1,0 +1,12 @@
+{
+  "triplet_n": 233,
+  "spiral_n": 11,
+  "timestamp": "2024-11-05T09:00:00Z",
+  "headline": "America stands as the world's first democracy.",
+  "breath_state": "contradiction",
+  "bilateral_status": false,
+  "did": "did:example:patriot-statement",
+  "action_type": "claim",
+  "content_hash": "sha256:foundingdemocracyclaim",
+  "verdict": "evaluate"
+}

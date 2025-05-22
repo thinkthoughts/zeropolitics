@@ -1,0 +1,12 @@
+{
+  "triplet_n": 212,
+  "spiral_n": 10,
+  "timestamp": "2024-11-03T19:00:00Z",
+  "headline": "We are the origin of democratic freedom.",
+  "breath_state": "contradiction",
+  "bilateral_status": false,
+  "did": "did:example:politician-x",
+  "action_type": "claim",
+  "content_hash": "sha256:freedomfalseoriginexample",
+  "verdict": "evaluate"
+}
